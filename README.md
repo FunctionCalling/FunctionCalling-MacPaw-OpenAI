@@ -1,6 +1,6 @@
 # FunctionCalling-MacPaw-OpenAI
 
-This library simplifies the integration of the [FunctionCalling](https://github.com/fumito-ito/FunctionCalling) macro into [MacPaw/OpenAI](https://github.com/MacPaw/OpenAI). By using this library, you can directly generate `Tool` objects from Swift native functions, which can then be specified as FunctionCalling when invoking VertexAI.
+This library simplifies the integration of the [FunctionCalling](https://github.com/fumito-ito/FunctionCalling) macro into [MacPaw/OpenAI](https://github.com/MacPaw/OpenAI). By using this library, you can directly generate `Tool` objects from Swift native functions, which can then be specified as FunctionCalling when invoking OpenAI.
 
 ## Usage
 
