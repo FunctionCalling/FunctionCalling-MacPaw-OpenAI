@@ -16,7 +16,7 @@ let package = Package(
             targets: ["FunctionCalling-MacPaw-OpenAI"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/FunctionCalling/FunctionCalling", from: "0.4.0"),
+        .package(url: "https://github.com/FunctionCalling/FunctionCalling", from: "0.5.0"),
         .package(url: "https://github.com/MacPaw/OpenAI", from: "0.3.0")
     ],
     targets: [
