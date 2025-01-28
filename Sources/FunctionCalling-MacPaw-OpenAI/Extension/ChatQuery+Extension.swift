@@ -9,13 +9,13 @@ import FunctionCalling
 import OpenAI
 
 extension ChatQuery.ChatCompletionToolParam {
-    init(tool: Tool) {
+    init(tool: FunctionCalling.Tool) {
         self.init(function: .init(tool: tool))
     }
 }
 
 extension ChatQuery.ChatCompletionToolParam.FunctionDefinition {
-    init(tool: Tool) {
+    init(tool: FunctionCalling.Tool) {
         self.init(
             name: tool.name,
             description: tool.description,
