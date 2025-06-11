@@ -19,54 +19,25 @@ extension ChatQuery.ChatCompletionToolParam.FunctionDefinition {
         self.init(
             name: tool.name,
             description: tool.description,
-            parameters: FunctionParameters(inputSchema: tool.inputSchema)
+            parameters: AnyJSONSchema(inputSchema: tool.inputSchema)
         )
     }
 }
 
-extension ChatQuery.ChatCompletionToolParam.FunctionDefinition.FunctionParameters {
+extension AnyJSONSchema {
     init(inputSchema: InputSchema) {
-        self.init(
-            type: JSONType(dataType: inputSchema.type),
-            properties: inputSchema.properties?.mapValues { Property(inputSchema: $0) },
-            required: inputSchema.requiredProperties,
-            enum: inputSchema.enumValues
-        )
+        self.init(fields: [
+            .type(JSONSchemaInstanceType(type: inputSchema.type)),
+            .properties(inputSchema.properties?.mapValues { AnyJSONSchema(inputSchema: $0) } ?? [:]),
+            .required(inputSchema.requiredProperties ?? []),
+            .enumValues(inputSchema.enumValues ?? [])
+        ])
     }
 }
 
-extension ChatQuery.ChatCompletionToolParam.FunctionDefinition.FunctionParameters.Property.Items {
-    init?(inputSchema: InputSchema?) {
-        guard let inputSchema else {
-            return nil
-        }
-
-        self.init(
-            type: JSONType(dataType: inputSchema.type),
-            properties: inputSchema.properties?.mapValues {
-                ChatQuery.ChatCompletionToolParam.FunctionDefinition.FunctionParameters.Property(inputSchema: $0)
-            },
-            enum: inputSchema.enumValues
-        )
-    }
-}
-
-extension ChatQuery.ChatCompletionToolParam.FunctionDefinition.FunctionParameters.Property {
-    init(inputSchema: InputSchema) {
-        self.init(
-            type: JSONType(dataType: inputSchema.type),
-            description: inputSchema.description,
-            format: inputSchema.format,
-            items: Items(inputSchema: inputSchema.items),
-            required: inputSchema.requiredProperties,
-            enum: inputSchema.enumValues
-        )
-    }
-}
-
-extension ChatQuery.ChatCompletionToolParam.FunctionDefinition.FunctionParameters.JSONType {
-    init(dataType: InputSchema.DataType) {
-        switch dataType {
+extension JSONSchemaInstanceType {
+    init(type: InputSchema.DataType) {
+        switch type {
         case .string:
             self = .string
         case .number:
