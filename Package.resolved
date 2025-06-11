@@ -1,5 +1,5 @@
 {
-  "originHash" : "b32fb03da18c6905b841dca38d2590d94af7c5abbf7c990db4f146b8c8d2135b",
+  "originHash" : "203e6544835d84bd20fbe6f01f08082aa5b02cfe5ebc96f023ca73a49208aa27",
   "pins" : [
     {
       "identity" : "documentationcomment",
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/FunctionCalling/FunctionCalling",
       "state" : {
-        "revision" : "24c07c25d57a66b0e34af8d1ffb1192c2b1313a3",
-        "version" : "0.4.0"
+        "revision" : "cd9c2c3d70e10c63e3da670718685825727b52ce",
+        "version" : "0.5.0"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/groue/GRMustache.swift",
       "state" : {
-        "revision" : "c4ee40ef49ae523b06fa470b8d27185ec027330d",
-        "version" : "5.0.1"
+        "revision" : "811326995377af216b970ae3afb0645ca94986c8",
+        "version" : "6.0.0"
       }
     },
     {
@@ -33,8 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/MacPaw/OpenAI",
       "state" : {
-        "revision" : "843e087929aa806adb611dbca93f9a4a7f28be04",
-        "version" : "0.3.0"
+        "revision" : "40f3d6cdb5a2ad72369984a8e0e99a28c6e46f47",
+        "version" : "0.4.2"
       }
     },
     {
