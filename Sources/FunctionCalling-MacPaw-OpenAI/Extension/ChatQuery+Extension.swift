@@ -19,16 +19,16 @@ extension ChatQuery.ChatCompletionToolParam.FunctionDefinition {
         self.init(
             name: tool.name,
             description: tool.description,
-            parameters: AnyJSONSchema(inputSchema: tool.inputSchema)
+            parameters: JSONSchema(inputSchema: tool.inputSchema)
         )
     }
 }
 
-extension AnyJSONSchema {
+extension JSONSchema {
     init(inputSchema: InputSchema) {
         self.init(fields: [
             .type(JSONSchemaInstanceType(type: inputSchema.type)),
-            .properties(inputSchema.properties?.mapValues { AnyJSONSchema(inputSchema: $0) } ?? [:]),
+            .properties(inputSchema.properties?.mapValues { JSONSchema(inputSchema: $0) } ?? [:]),
             .required(inputSchema.requiredProperties ?? []),
             .enumValues(inputSchema.enumValues ?? [])
         ])
