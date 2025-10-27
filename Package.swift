@@ -17,7 +17,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/FunctionCalling/FunctionCalling", from: "0.5.0"),
-        .package(url: "https://github.com/MacPaw/OpenAI", from: "0.4.6")
+        .package(url: "https://github.com/MacPaw/OpenAI", from: "0.4.7")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
